@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            background-color: #909090;
+            display: grid;
+            place-items: center;
+        }
+        
+        label {
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+            border-radius: 10px;
+            border: 1px solid #4e4d4d;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: .7;
+            transition: .3s ease-in-out;
+        }
+
+        label:hover {
+            animation: animTres .4s;
+            scale: 1;
+            opacity: 1;
+            border-radius: 30px;
+            box-shadow: -1px 1px 5px #3f3f3f80;
+        }
+
+        label:hover ~ #two {
+            translate: 5px;
+        }
+        
+        #nav-input {
+            -webkit-appearance: none;
+            display: none;
+        }
+        
+        .menu {
+            width: 30px;
+            height: 4px;
+            border-radius: 3px;
+            position: absolute;
+            background-color: #303030;
+            transition: .5s ease-in-out;
+        }
+        
+        #one {
+            translate: 0 -10px;
+        }
+        
+        #three {
+            translate: 0 10px;
+        }
+
+        #nav-input:hover ~ #one {
+            animation: animTres .9s;
+        }
+
+        #nav-input:hover ~ #two {
+            translate: 5px;
+        }
+
+        #nav-input:hover ~ #three {
+            animation: animTres .9s .3s;
+            
+        }
+        
+        #nav-input:checked ~ #one {
+            animation: 1.2s animUm;
+            animation-fill-mode: forwards;
+            translate: 1px 0;
+        }
+        
+        #nav-input:checked ~ #two {
+            opacity: 0;
+        }
+        
+        #nav-input:checked ~ #three {
+            animation: 1.2s animDois;
+            animation-fill-mode: forwards;
+            translate: 1px 0;
+        }
+ 
+        @keyframes animUm {
+            0%, 50% {
+                rotate: 120deg;
+            }
+            50%, 100% {
+                rotate: -70deg;
+            }
+            100%, 0% {
+                rotate: 45deg;
+                background-color: #f9f9f9;
+            }
+        }
+        
+        @keyframes animDois {
+            0%, 50% {
+                rotate: -100deg;
+            }
+            50%, 100% {
+                rotate: 50deg;
+            }
+            100%, 0% {
+                rotate: -50deg;
+                background-color: #f9f9f9;
+            }
+        }
+
+        @keyframes animTres {
+            0%, 50% {
+                rotate: -5deg;
+            }
+            50%, 100% {
+                rotate: 10deg;
+            }
+            100%, 0% {
+                rotate: -5deg;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <label>
+            <input type="checkbox" id="nav-input">
+            <span class="menu" id="one" ></span>
+            <span class="menu" id="two"></span>
+            <span class="menu" id="three"></span>
+        </label>
+    </nav>
+</body>
+</html>
